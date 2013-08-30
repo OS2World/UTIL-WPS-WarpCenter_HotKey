@@ -1,0 +1,29 @@
+:TARGET.SUFFIXES
+:TARGET.SUFFIXES
+:DEPENDENCY..c .obj 
+:TARGET.all
+:DEPENDENCY.
+.\wckey.dll
+:RULE..c.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Oc /Ge- /Gi /Ol /C %s
+:RULE.{g:\wckey}.c.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Oc /Ge- /Gi /Ol /C %s
+:TARGET..\wckey.dll
+:DEPENDENCY.
+.\wckey.obj
+{$(LIB)}wckey.def
+:ACTION.Link::Linker
+:COMMAND.
+icc.exe @<<
+ /B" /nobase"
+ /Fewckey.dll 
+ wckey.def
+ .\wckey.obj
+<<
+:TARGET..\wckey.obj
+:DEPENDENCY.
+g:\wckey\wckey.c

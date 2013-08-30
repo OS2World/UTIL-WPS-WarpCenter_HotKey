@@ -1,0 +1,5 @@
+LIBRARY WCKEY
+DESCRIPTION 'WarpCenter HotKey'
+EXPORTS
+   HookInit @1
+
